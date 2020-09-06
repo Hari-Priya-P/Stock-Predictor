@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+         body {
+        background: url(https://www.powerpointstemplate.com/wp-content/uploads/2016/11/blue-wood-backgrounds-powerpoint.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: white;
+      }
+
+      h1 {
+        padding-top: 30px;
+        padding-bottom: 50px;
+      }
+
+      .container {
+        color: lightgrey;
+      }
+
+      .sample{
+        color: #00cccc;
+      }
+
+      .links{
+        color: #00cccc;
+      }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse">
+          <a class="navbar-brand {{ myhome_page }}" href="{% url 'My-Home' %}">StockUp</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item {{ predict_page }}">
+                <a class="nav-link" href="{% url 'PREDICT' %}">Predict <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item {{ analysis_page }}">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+              </li>
+              <li class="nav-item {{ compare_page }}">
+                <a class="nav-link" href="{% url 'compare' %}">Compare</a>
+              </li>
+              <li class="nav-item {{ threshold_page }}">
+                <a class="nav-link" href="{% url 'threshold' %}">NotifyMe</a>
+              </li>
+              <li class="nav-item {{ learning_page }}">
+                <a class="nav-link" href="{% url 'learning_page' %}">Beginner's Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'page-about' %}">About</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Update Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+          </div>
+        </nav>
+
+    <div class="container">
+        <h1 class="text-center sample">Getting familiar with Stock Trading</h1>
+        <h3>New to the Stock Market? We've got you covered!</h3>
+
+        <p><strong>Understanding the Stock Market: </strong></p>
+        <p>The stock market refers to the collection of markets and exchanges where regular activities
+        of buying, selling, and issuance of shares of publicly-held companies take place. Such financial
+        activities are conducted through institutionalized formal exchanges or over-the-counter (OTC)
+        marketplaces which operate under a defined set of regulations. In a nutshell, stock markets provide
+        a secure and regulated environment where market participants can transact in shares and other eligible
+        financial instruments with confidence with zero- to low-operational risk.</p>
+        <hr>
+        <p><strong>Technical Indicators: </strong></p>
+        <p>Technical indicators are heuristic or mathematical calculations based on the price, volume,
+        or open interest of a security or contract used by traders who follow technical analysis.</p>
+        <p>By analyzing historical data, technical analysts use indicators to predict future price movements.
+        Examples of common technical indicators include the Relative Strength Index, Money Flow Index,
+        Stochastics, MACD and Bollinger Bands.</p>
+        <hr>
+        <p><strong>Visit the following links to learn more about analyzing stock market trends using indicators:</strong></p>
+        <ul>
+            <li><a class="links" href="https://medium.com/@harrynicholls/7-popular-technical-indicators-and-how-to-use-them-to-increase-your-trading-profits-7f13ffeb8d05"  target="_blank">Using Indicators to Increase Trading Profits</a></li>
+            <li><a class="links" href="https://www.investopedia.com/articles/active-trading/041814/four-most-commonlyused-indicators-trend-trading.asp" target="_blank">Most Commonly Used Indicators</a></li>
+            <li><a class="links" href="https://www.warriortrading.com/riding-the-trend-top-indicators-for-trend-trading/" target="_blank">More on Trend Trading</a></li>
+        </ul>
+        <hr>
+        <p>For more on stock trends, visit <a class="links" href="https://medium.com/swlh/17-basic-stock-market-concepts-you-need-to-know-8af22ae3c016" target="_blank">this page</a>.</p>
+        <p><strong>Youtube Tutorials for Beginners:</strong></p>
+        <ul>
+            <li><a class="links" href="https://www.youtube.com/watch?v=Sbp_t4guM8g" target="_blank">Investing in Stocks for Beginners</a></li>
+            <li><a class="links" href="https://www.youtube.com/watch?v=p7HKvqRI_Bo" target="_blank">How the Stock Market works</a></li>
+        </ul>
+    </div>
+    <br>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Threshold</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <style type="text/css">
+           body {
+        background: url(https://image.freepik.com/free-vector/stock-market-graph-forex-trading-chart-business-financial-concepts_87788-133.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+      }
+      h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      h4, h5 {
+        padding-bottom: 30px;
+        padding-top: 20px;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      .btn-block {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .col-lg-6 {
+        padding-bottom: 20px;
+      }
+
+
+      .sample{
+        color: #00ccff;
+      }
+
+      #log-row #log-column .log-form {
+            padding: 15% 15% 10% 10%;
+            max-width: 500px;
+            height: 320px;
+            border: 1px solid white;
+            font-family: Lato;
+            color: lightgrey;
+        }
+
+        #result {
+            padding: 0 auto;
+            margin-top: 40px;
+            margin: 0 auto;
+            width: 100%;
+            border: 1px solid white;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-family: Lato;
+            color: white;
+        }
+
+        ol {
+            list-style: none;
+            text-align: center;
+        }
+
+         hr {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      div.content{
+        text-align: center;
+        width: 90%;
+        margin-left: 80px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      div.row{
+        /*background-color: rgba(0, 0, 0, 0.3);*/
+        padding-top: 20px;
+      }
+
+      table {
+        width: 100%;
+      }
+      td {
+       border: 0.5px solid rgba(255, 255, 255, 0.2);
+       text-align: center;
+      }
+
+
+      </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse">
+          <a class="navbar-brand {{ myhome_page }}" href="{% url 'My-Home' %}">StockUp</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item {{ predict_page }}">
+                <a class="nav-link" href="{% url 'PREDICT' %}">Predict <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item {{ analysis_page }}">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+              </li>
+              <li class="nav-item {{ compare_page }}">
+                <a class="nav-link" href="{% url 'compare' %}">Compare</a>
+              </li>
+              <li class="nav-item {{ threshold_page }}">
+                <a class="nav-link" href="{% url 'threshold' %}">NotifyMe</a>
+              </li>
+              <li class="nav-item {{ learning_page }}">
+                <a class="nav-link" href="{% url 'learning_page' %}">Beginner's Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'page-about' %}">About</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Update Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+          </div>
+        </nav>
+
+        <h1 class="text-center sample">NotifyMe</h1>
+        <div class="content">
+  
+  <h5 class="text-center text-grey">We do not want you to miss out any good trading opportunity on the stocks which you are interested in. We therefore give you the option of specifying a percentage change in price for your favourite stocks so that we can notify you through email whenever the stock price reaches or crosses the percentage you set and bring it to your notice immediately. You can refer to the current price of all stocks on the left and accordingly specify the desired percentage change in price for any stock of your choice in the form on the right.</h5>
+</div>
+        <div class="container">
+          <div style="background-color: rgba(0, 0, 0, 0.8); border: 1px solid white; padding: 35px 30px 25px 30px;" class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <table>
+                    <tr>
+                      <td><strong>Stock</strong></td>
+                      <td><strong>Current Price</strong></td>
+                    </tr>
+                    {% for stock, recent_price in stock_data.items %}
+                    <tr>
+                      <td>{{stock}}</td>
+                      <td>{{recent_price}}</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div id="log-row" class="row d-flex justify-content-center">
+                  <div class="log-form col-md-12">
+                    <form id="login-form" action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="stock">Please select a stock: </label>
+                                <br>
+                                <select name="stock">
+                                    <option value="AAPL">Apple (AAPL)</option>
+                                    <option value="AMZN">Amazon (AMZN)</option>
+                                    <option value="FB">Facebook (FB)</option>
+                                    <option value="GOOGL">Google (GOOGL)</option>
+                                    <option value="NFLX">Netflix (NFLX)</option>
+                                    <option value="TRIP">Trip Advisor (TRIP)</option>
+                                    <option value="TSLA">Tesla (TSLA)</option>
+                                    <option value="TWTR">Twitter (TWTR)</option>
+                                    <option value="VAC">Marriot Vacation (VAC)</option>
+                                    <option value="YELP">Yelp (YELP)</option>
+                                </select><br><br>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="num">Please enter a percentage: </label>
+                                <input type="text" class="form-control" id="num" name="threshold" placeholder="Percentage Change">
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <a href="">
+                                    <button type="submit" class="btn btn-primary">Submit!</button>
+                                </a>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+
+          </div>
+          <br>
+          <hr>
+          <br>
+          <div id="result">
+            <h4 class="text-center"><bold>List of Percentages set by You</bold></h4>
+            <table>
+                <tr>
+                  
+                    <td><strong>Stock Symbols</strong></td>
+                    <td><strong>Desired Percentage Change for the Stock</strong></td>
+                    <td><strong>Stock Price when Percentage was Set</strong></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <ol>
+                            {% for thr in threshold %}
+                            <li>{{thr.ticker}}</li>
+                            {% endfor %}
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            {% for thr in threshold %}
+                            <li>{{thr.threshold}}</li>
+                            {% endfor %}
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            {% for thr in threshold %}
+                            <li>{{thr.price}}</li>
+                            {% endfor %}
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+          </div>
+          <br>
+          <hr>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

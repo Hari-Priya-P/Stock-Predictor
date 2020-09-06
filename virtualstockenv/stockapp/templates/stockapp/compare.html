@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparison Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+        body {
+        background: url(https://c4.wallpaperflare.com/wallpaper/902/866/448/blue-colorful-dark-simple-wallpaper-preview.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+    }
+
+     h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+       hr {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-primary {
+        margin-left: 120px;
+        text-align: center;
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+      }
+
+
+      table {
+        width: 100%;
+      }
+
+      div.content{
+        text-align: center;
+        width: 90%;
+        margin-left: 80px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      div.col-lg-4{
+        text-align: center;
+        margin-left: 150px;
+      }
+
+      div.sub_btn{
+        margin-right: 110px;
+      }
+
+      .sample{
+        color: #0080ff;
+      }
+
+      td {
+       border: 0.5px solid rgba(255, 255, 255, 0.2);
+       text-align: center;
+      }
+
+      .select {
+        height: 100px;
+        overflow: auto;
+      }
+
+      .selectstock {
+        text-align: center;
+        padding-left: 30px;
+      }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse">
+          <a class="navbar-brand {{ myhome_page }}" href="{% url 'My-Home' %}">StockUp</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item {{ predict_page }}">
+                <a class="nav-link" href="{% url 'PREDICT' %}">Predict <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item {{ analysis_page }}">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+              </li>
+              <li class="nav-item {{ compare_page }}">
+                <a class="nav-link" href="{% url 'compare' %}">Compare</a>
+              </li>
+              <li class="nav-item {{ threshold_page }}">
+                <a class="nav-link" href="{% url 'threshold' %}">NotifyMe</a>
+              </li>
+              <li class="nav-item {{ learning_page }}">
+                <a class="nav-link" href="{% url 'learning_page' %}">Beginner's Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'page-about' %}">About</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Update Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+          </div>
+        </nav>
+
+        <h1 class="text-center sample">Compare Stocks</h1>
+        <br>
+
+        <div class="content">
+  
+  <h5 class="text-center text-grey">Are you confused as to which stock to invest in? We make the decision process smoother for you by helping you to compare two or more stocks to analyze their performance both in the long term (past one year) as well as the short term (one day). You just need to input the details below and we will provide you with the graphs for the price and volumes traded for each stock. We also give you further details on the average values in the long and short time periods over the Open price, Close Price, Low, High and Volume traded. Please provide the necessary details below.</h5>
+</div>
+<br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <form class="form-inline" method="post">
+                    {% csrf_token %}
+                      <label class="my-1 mr-2 text-center selectstock" for="selectstock">Select stocks by holding Ctrl key:</label>
+                      <select class="custom-select my-1 mr-sm-2 text-center select" multiple id="stocks" name="stocks">
+                        <option selected value="AAPL">Apple (AAPL)</option>
+                        <option value="AMZN">Amazon (AMZN)</option>
+                        <option value="FB">Facebook (FB)</option>
+                        <option value="GOOGL">Google (GOOGL)</option>
+                        <option value="NFLX">Netflix (NFLX)</option>
+                        <option value="TRIP">TripAdvisor (TRIP)</option>
+                        <option value="TSLA">Tesla (TSLA)</option>
+                        <option value="TWTR">Twitter (TWTR)</option>
+                        <option value="VAC">Marriott Vacations Worldwide (VAC)</option>
+                        <option value="YELP">Yelp (YELP)</option>
+                      </select>
+                </div>
+                
+                <div class="col-lg-4">
+                     <label class="my-1 mr-2 text-center" for="selectterm">Select the term: </label>
+                        <select size="2" class="custom-select my-1 mr-sm-2 text-center select" id="typepred" name="term">
+                            <option selected value="short">Short Term</option>
+                            <option value="long">Long Term</option>
+                        </select>
+                        <br>
+                        <div class="sub_btn">
+                        <button type="submit" class="btn btn-primary my-1">Submit</button>
+                      </div>
+                </div>
+                </form>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                  <div id="container1"></div>
+                  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+                  <script>
+                    Highcharts.chart('container1', {{ chart1|safe }});
+                  </script>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                  <div id="container2"></div>
+                  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+                  <script>
+                    Highcharts.chart('container2', {{ chart2|safe }});
+                  </script>
+                </div>
+            </div>
+            <br>
+            <hr>
+            
+            <h4><center>Average Values for each of the above Stocks</center></h4>
+            <br>
+                    <table>
+                      <strong>
+                        <tr>
+                            <td>Stock</td>
+                            <td>Open</td>
+                            <td>Low</td>
+                            <td>High</td>
+                            <td>Close</td>
+                            <td>Volume</td>
+                         
+                        </tr>
+                         </strong>
+                        {% for rec, val in averages.items %}
+                        <tr>
+                            <td>{{ rec }}</td>
+                            <td>{{ val.0 }}</td>
+                            <td>{{ val.1 }}</td>
+                            <td>{{ val.2 }}</td>
+                            <td>{{ val.3 }}</td>
+                            <td>{{ val.4 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+        </div>
+        <br>
+        <hr>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

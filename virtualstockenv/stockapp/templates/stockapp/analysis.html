@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style type="text/css">
+           body {
+        background: url(https://ak0.picdn.net/shutterstock/videos/18766430/thumb/1.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+      }
+      h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      h4 {
+        padding-bottom: 30px;
+        padding-top: 20px;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      .btn-block {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .col-lg-6 {
+        padding-bottom: 20px;
+      }
+
+      div.content{
+        text-align: center;
+        width: 90%;
+        margin-left: 80px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      hr {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .sample{
+        color: #0080ff;
+      }
+
+      
+
+      </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse">
+          <a class="navbar-brand {{ myhome_page }}" href="{% url 'My-Home' %}">StockUp</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item {{ predict_page }}">
+                <a class="nav-link" href="{% url 'PREDICT' %}">Predict <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item {{ analysis_page }}">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+              </li>
+              <li class="nav-item {{ compare_page }}">
+                <a class="nav-link" href="{% url 'compare' %}">Compare</a>
+              </li>
+              <li class="nav-item {{ threshold_page }}">
+                <a class="nav-link" href="{% url 'threshold' %}">NotifyMe</a>
+              </li>
+              <li class="nav-item {{ learning_page }}">
+                <a class="nav-link" href="{% url 'learning_page' %}">Beginner's Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'page-about' %}">About</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Update Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+          </div>
+        </nav>
+<div class="user">
+    <h1 class="text-center sample">Analysis Page</h1>
+</div>
+<br>
+  <div class="content">
+  <h5 class="text-center text-grey">You can analyze any stock you choose by using this feature. Long term analysis helps you in analyzing the peformance of the stock over the past year and also provides you with the historical data records, while short term analysis provides you the real-time stock summary. We also plot the data and provide you with graphs so that you can analyze and understand the stocks at a glance over a given period of time which can be input by you. Please choose one of the options below to continue.</h5>
+</div>
+  
+  <br>
+  <div class="container">
+       <div class="row">
+  <div class="col-lg-6">
+    <a  href="{% url 'long_analysis' %}">
+      <button type="button" class="btn btn-secondary btn-lg btn-block text-white">
+      <h4 class="text-center text-grey">Long Term Stock Analysis </h4>
+      Analyze Stock Prices using Historical Data
+      <br>
+      <br>
+  </button>
+    </a>
+  </div>
+  <div class="col-lg-6">
+    <a href="{% url 'short_analysis' %}">
+      <button type="button" class="btn btn-secondary btn-lg btn-block text-white">
+        <h4 class="text-center text-grey">Short Term Stock Analysis</h4>
+      Analyze Stock Prices using Real-Time Data
+      <br>
+      <br>
+    </button>
+    </a>
+  </div>
+</div>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

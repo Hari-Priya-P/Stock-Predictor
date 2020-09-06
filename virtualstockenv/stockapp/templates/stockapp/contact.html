@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <style type="text/css">
+      .center {
+          text-align: center;
+          padding-top: 10%;
+          text-shadow: 0px 4px 3px black,
+                      0px 8px 13px blue,
+                      0px 18px 23px indigo;
+      }
+
+      .content {
+          text-align: center;
+      }
+
+      .navbar-inverse {
+          background: rgb(0, 0, 0, 0.3);
+      }
+
+      .sample{
+        color: white;
+      }
+
+      body {
+          background: url(https://images.squarespace-cdn.com/content/v1/5c8545b5348cd967825a22e1/1554340131158-5J69EURDHIAYQJJYPFPL/ke17ZwdGBToddI8pDm48kO4guELqrbhxX1k2T-bY4I8UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKca5wmnK7yQ-eHoGCaKe7lJ9hh35HdB3mzW3eZhEV0C_yMZ23cwwZuxGZgozZd_8qd/network+background.png?format=1500w);
+          background-size: cover;
+          background-position: center;
+          font-family: Lato;
+      }
+
+      html {
+          height: 100%;
+      }
+
+      body {
+          color: lightgrey;
+      }
+
+      h1 {
+          font-weight: 700;
+          font-size: 5.0em;
+      }
+
+      hr {
+          width: 400px;
+          border-top: 1px solid #f8f8f8;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-lg {
+        margin-top: 2%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-inverse">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'My-Home' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+          {% else %}
+            <a class="navbar-brand" href="{% url 'Land' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+          {% endif %}
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+<h1 class="text-center sample">Contact Us</h1>
+<h3 class="text-center">For further information on StockUp, please contact the below members.</h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <h4 style=""><Strong>Pranav Shivkumar</Strong></h4>
+                <h5>ps1029@rutgers.edu</h5>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 style=""><Strong>Naga Venkata Vihari Vinnakota</Strong></h4>
+                <h5>nvv13@rutgers.edu</h5>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 style=""><Strong>Hari Priya Ponnakanti</Strong></h4>
+                <h5>hp467@rutgers.edu</h5>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 style=""><Strong>Swapnil Shashikant Kamate</Strong></h4>
+                <h5>sk2181@rutgers.edu</h5>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

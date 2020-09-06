@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yelp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+         body {
+        background: url(https://wallup.net/wp-content/uploads/2018/09/25/632758-simple_background-blue_background-hexagon-748x468.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: white;
+      }
+
+        h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .container {
+        padding-top: 50px;
+      }
+
+      .sample{
+        color: #66ffff;
+        text-decoration: underline;
+      }
+
+       hr {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'My-Home' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+    <h1 class="text-center">Yelp</h1>
+
+    <div class="container">
+         <h6>
+            <strong>Contact: <br></strong>
+        Yelp Inc. <br>
+        140 New Montgomery Street <br>
+        9th Floor <br>
+        San Francisco, CA 94105 <br><br>
+        <a class="sample" href="http://www.yelp.com" target="_blank">Learn More <br></a>
+        </h6>
+        <hr>
+        <h6>About Yelp</h6>
+        <p class="text-justify">Yelp Inc. operates a platform that connects consumers with local businesses in the United States, Canada,
+        and internationally. The company's platform covers various local business categories, including restaurants, shopping, home and
+        local services, beauty and fitness, health, and other categories. It provides free and paid advertising products to businesses, as well
+        as enables businesses to deliver targeted search advertising to local audiences through its Website and mobile application; and business
+        listing products. The company's Yelp platform enables consumers to order flowers, purchase event tickets, and book spa and salon
+        appointments. In addition, it offers Yelp Deals that allow local business owners to create promotional discounted deals for their
+        products and services; and Gift Certificates. Further, the company provides other services comprising Yelp Reservations that provide
+        restaurants, nightlife, and other venues with the ability to offer online reservations directly from their Yelp business listing pages;
+        Yelp Waitlist, a subscription-based waitlist management solution that allows consumers to check wait times and join waitlists remotely,
+        as well as businesses to manage seating and server rotation; and Yelp Knowledge program that offers business owners local analytics and
+        insights through access to its historical data and other proprietary content. Additionally, it provides content licensing, as well as
+        allows third-party data providers to update and manage business listing information on behalf of businesses. The company offers its
+        products directly through its sales force; indirectly through partners; and online through its Website, as well as non-advertising
+        partner arrangements. It has strategic partnership with Grubhub for providing consumers with a selection of restaurants and delivery
+        options. Yelp Inc. was founded in 2004 and is headquartered in San Francisco, California.</p>
+        <hr>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

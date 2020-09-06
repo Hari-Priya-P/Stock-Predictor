@@ -1,0 +1,16 @@
+{% extends "stockapp/base.html" %}
+    {% block title %}
+        Longterm-Prediction
+    {% endblock title %}
+
+    {% block content %}
+        <article class="media content-section">
+                <div class="media-body">
+
+
+                    <p class="article-content">{{ predictions.prediction }}  {{ predictions.name }}  {{ predictions.suggestion }}</p>
+
+                    </div>
+
+            </article>
+    {% endblock content %}
