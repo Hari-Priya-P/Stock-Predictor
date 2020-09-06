@@ -1,0 +1,7 @@
+id,password,last_login,is_superuser,username,first_name,last_name,email,is_staff,is_active,date_joined
+1,pbkdf2_sha256$180000$Zpn68K2WbhGN$/W1Fif9dqevwenU+h6f4V5FYNWO6OU4azoWSWR/Y3Hk=,"2020-05-07 19:52:31.827647",1,Admin,,,stockupalerts@gmail.com,1,1,"2020-04-27 22:07:55.658129"
+3,pbkdf2_sha256$180000$kKcXy7OJo9sP$pgUK+7kaRRYK5ufp+EwR4yX38ZPnrAQvFKgHBAc76+Q=,"2020-05-13 01:19:16.979752",0,hp467,"Hari Priya",Ponnakanti,hp467@scarletmail.rutgers.edu,0,1,"2020-04-27 22:12:48.831351"
+4,pbkdf2_sha256$180000$uoXL6CWvjW6G$4p7Lt/MEb7SawiqW9mATPwKrBG9a2BfS+eu33sbbw98=,NULL,0,ps1029,Pranav,Shivkumar,ps1029@rutgers.edu,0,1,"2020-04-30 23:19:09.622775"
+6,pbkdf2_sha256$180000$NQ7JOT90HURu$ZzoJe0WSkNfPs2Vlkbmo5Z2gZ4HbpqpVkF+1My36emA=,"2020-05-06 00:24:39.207581",0,nvv13,Vihari,Vinnakota,nvv13@scarletmail.rutgers.edu,0,1,"2020-05-06 00:00:49.211148"
+7,pbkdf2_sha256$180000$dVUTrLFgcyKS$+yFi+jAoK83PbmJwC2otbKDOhqoj08yAe4cl2rssREI=,"2020-05-07 00:54:25.437065",0,php17,Hari,Priya,haripriyaponnkanti@gmail.com,0,1,"2020-05-07 00:53:12.284597"
+9,pbkdf2_sha256$180000$lkOoPfZ13lyO$WWgF8eJdcxmdwqZoEtYBpQApuUm+SlNLDol7wc6nfCU=,"2020-05-07 20:13:17.564483",0,yll,Yinglung,Liang,yinglung.liang@rutgers.edu,0,1,"2020-05-07 19:58:51.994111"

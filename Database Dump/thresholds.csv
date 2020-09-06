@@ -1,0 +1,8 @@
+username,ticker,price,threshold,satisfied
+hp467,AMZN,2280.15,5,0
+hp467,TSLA,722.875,3,1
+nvv13,GOOGL,1350.89,-5,0
+php17,FB,208.18,3,0
+php17,TRIP,18.125,-4,0
+yll,AAPL,303.58,5,0
+yll,NFLX,436.13,-2,0
