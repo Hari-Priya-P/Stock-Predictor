@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historical Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+         body {
+        background: url(https://c4.wallpaperflare.com/wallpaper/902/866/448/blue-colorful-dark-simple-wallpaper-preview.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+      }
+
+        h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+
+      h4 {
+        text-align: center;
+        width: 300px;
+        height: 50px;
+      }
+
+      hr {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+      }
+
+      table {
+        width: 100%;
+      }
+      td {
+       border: 0.5px solid rgba(255, 255, 255, 0.2);
+       text-align: center;
+      }
+
+      .invalid{
+        color: red;
+      }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'analysis' %}"><i class="fas fa-arrow-circle-left"></i> Back</a>
+        </div>
+
+    </nav>
+    <h1 class="text-center">Long Term Analysis</h1>
+    <hr>
+
+    <form action="" method="post">
+    {% csrf_token %}
+    <div align="center">
+    Please choose a stock:
+    <select name="stock">
+        <option value="AAPL">Apple (AAPL)</option>
+        <option value="AMZN">Amazon (AMZN)</option>
+        <option value="FB">Facebook (FB)</option>
+        <option value="GOOGL">Google (GOOGL)</option>
+        <option value="NFLX">Netflix (NFLX)</option>
+        <option value="TRIP">Trip Advisor (TRIP)</option>
+        <option value="TSLA">Tesla (TSLA)</option>
+        <option value="TWTR">Twitter (TWTR)</option>
+        <option value="VAC">Marriot Vacation (VAC)</option>
+        <option value="YELP">Yelp (YELP)</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Metric:
+    <select name="metric">
+        <option value="open_value">Open Price</option>
+        <option value="close_value">Close Price</option>
+        <option value="low">Low</option>
+        <option value="high">High</option>
+        <option value="volume">Volume</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label for="start">Start date:</label>
+
+    <input type="date" id="start" name="date-start"
+       value="2020-01-01"
+       min="2019-03-27" max="getDate()">
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="end">End date:</label>
+
+    <input type="date" id="end" name="date-end"
+       value="2020-05-07"
+       min="2019-03-27" max="getDate()">
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    Frequency:
+    <select name="frequency">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+    </select>
+
+    <button type="submit">Go</button>
+    </form>
+    </div>
+    <div class="invalid">
+    <center>{{msg}}</center>
+  </div>
+    <script type="text/javascript">
+      function getDate(){
+        $today = new Date();
+        $yesterday = new Date($today);
+        $yesterday.setDate($today.getDate() - 1);
+        var $dd = $yesterday.getDate();
+        var $mm = $yesterday.getMonth()+1; //January is 0!
+
+        var $yyyy = $yesterday.getFullYear();
+        if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} $yesterday = $yyyy+'-'+$mm+'-'+$dd;
+        return $yesterday;
+      }
+    </script>
+    <hr>
+
+    
+
+    </br>
+
+    <div class="container">
+        
+        <div id="container1"></div>
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script>
+      Highcharts.chart('container1', {{ chart|safe }});
+    </script>
+  </br>
+
+      <center><h5>Please scroll down to view the Historical Data Records for the selected time period.</h5></center>
+  <hr>
+  </br>
+  <center><h4>Historical Data Records</h4></center>
+    
+        <table style="margin: 0 auto">
+                    <tr style="font-weight: bold;">
+                        <td>Date</td>
+                        <td>Open</td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Close</td>
+                        <td>Volume</td>
+                    </tr>
+                    {% for record in historical %}
+                    <tr>
+                        <td>{{record.dat}}</td>
+                        <td>{{record.open_value}}</td>
+                        <td>{{record.low}}</td>
+                        <td>{{record.high}}</td>
+                        <td>{{record.close_value}}</td>
+                        <td>{{record.volume}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </div>
+        <br>
+    </div>
+    <hr>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

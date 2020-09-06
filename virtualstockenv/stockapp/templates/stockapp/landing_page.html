@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StockUp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+      .center {
+          text-align: center;
+          padding-top: 10%;
+          text-shadow: 0px 4px 3px black,
+                      0px 8px 13px blue,
+                      0px 18px 23px indigo;
+      }
+
+      .content {
+          text-align: justify;
+      }
+
+      .navbar-inverse {
+          background: rgba(0, 0, 0, 0.3);
+      }
+
+      body {
+          background: url(https://image.freepik.com/free-vector/business-candle-stick-graph-chart-stock-market-investment-trading-blue-background_62391-77.jpg);
+          background-size: cover;
+          background-position: center;
+          font-family: Lato;
+      }
+
+      html {
+          height: 100%;
+      }
+
+      body {
+          color: lightgrey;
+      }
+
+      h1 {
+          font-weight: 700;
+          font-size: 5.0em;
+      }
+
+      hr {
+          width: 400px;
+          border-top: 1px solid #f8f8f8;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-lg {
+        margin-top: 2%;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-dark navbar-inverse">
+    <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'Land' %}"><i class="fas fa-chart-line"></i> StockUp</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">View Stocks</a></li>
+            <li><a href="#">Predict Stock Price</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       <li><a href="{% url 'page-about' %}">About StockUp <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'contact' %}">Contact Us <i class="fas fa-mobile-alt"></i></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center">
+                    <h1>Welcome to StockUp</h1>
+                    <h3>Your One-Click Solution for Stock Predictions</h3>
+                    <hr>
+                    <a href="{% url 'register' %}">
+                        <button class="btn btn-default btn-lg">
+                            <i class="fa fa-user-plus"></i> Sign Up!
+                        </button>
+                    </a>
+                    <a href="{% url 'login' %}">
+                        <button class="btn btn-default btn-lg">
+                            <i class="fas fa-angle-double-right"></i> Log In!
+                        </button>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

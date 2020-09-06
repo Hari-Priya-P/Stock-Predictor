@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+    	h1 {
+			text-align: center;
+			background: rgba(0, 0, 0, 0.3);
+			color: white;
+			font-family: Lato;
+			font-weight: 700;
+			padding-bottom: 20px;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		#pwdHelp {
+			color: lightgrey;
+		}
+
+		body {
+			background: url(https://image.freepik.com/free-vector/business-candle-stick-graph-chart-stock-market-investment-trading-blue-background_62391-77.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+		}
+
+		#log-row #log-column .log-form #log {
+			padding: 10% 10% 10% 10%;
+			margin-top: 20px;
+			width: 600px;
+			max-width: 1000px;
+			height: 850px;
+			/*border: 1px solid #8e8e99;*/
+			background-color: rgba(0, 0, 0, 0.6);
+			font-family: Lato;
+			color: lightgrey;
+		}
+
+		.container #log-row #log-column #log-form #login-form {
+			 margin-top: 70px;
+			 margin-left: auto;
+			 margin-right: auto;
+			 max-width: 600px;
+			 height: 320px;
+			 border: 1px solid black;
+			 /*background: #8e8e99;*/
+		}
+
+		.navbar-inverse {
+			background: rgba(0, 0, 0, 0.3);
+		}
+    </style>
+</head>
+<body>
+{% load crispy_forms_tags %}
+	<nav class="navbar navbar-dark navbar-inverse">
+		 <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'Land' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+    </div>
+    </nav>
+    <div class="login">
+		<h1 class="text-center ">Hi, Welcome to StockUp</h1>
+	</div>
+	<div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+   <!--  <div class="navbar-header">
+      <a class="navbar-brand" href="landing_page.html"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+    </div> -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+			<!-- <div class="login">
+				<h1 class="text-center ">Hi, Welcome to StockUp</h1>
+
+			</div> -->
+			<div id="log-row" class="row d-flex justify-content-center">
+				<div id="log-column" class="col-md-6">
+					<div class="log-form col-md-12">
+						<form id="login-form" action="" method="post">
+
+  							{% csrf_token %}
+							<div id="log" class="form-group">
+  								<h2>Register Today for a Free Account!</h2>
+  								{% csrf_token %}
+                            <fieldset class="form-group">
+
+                                {{ form|crispy }}
+                            </fieldset>
+  							<div class="form-group form-check">
+    							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    							<label class="form-check-label" for="exampleCheck1">I agree to the terms and conditions</label>
+  							</div>
+  							<div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                            </div>
+  							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

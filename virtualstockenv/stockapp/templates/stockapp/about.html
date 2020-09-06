@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About StockUp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+        body {
+        background: url(https://images.squarespace-cdn.com/content/v1/5ac4c8a93917eeb103d3e09b/1547570494301-XK414S4SEL6D30CK2TZ7/ke17ZwdGBToddI8pDm48kOs4Ql_RZ6RsiS8Khq5qvJh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USFQe8M-77ejgnvKg8-sjI0ugMIMlWOeA0BP1W-yKRDjbSexTd1-frD7527z4SM9QQ/graph-background-hq-optimized.png?format=2500w);
+        position: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      h1 {
+        padding-top: 10px;
+        padding-bottom: 30px;
+      }
+
+      
+      .container {
+        text-align: justify;
+        color: white;
+      }
+
+      
+
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-dark navbar-inverse">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'My-Home' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+          {% else %}
+            <a class="navbar-brand" href="{% url 'Land' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+          {% endif %}
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center sample">About StockUp</h1>
+        <p>
+            StockUp is an application which aims at helping people make better investment decisions in the
+            stock market. It not only assists experienced traders, but also beginners to the stock market by
+            providing information on basic stock concepts and investment guidance. By registering as a user on
+            the website, you get to access a wide range of services for free.
+        </p>
+        <p>We provide services for the ten stocks listed as below.</p>
+        <ol>
+            {% for i in stocks %}
+            <li>{{ i.ticker }}</li>
+            {% endfor %}
+        </ol>
+
+        <p>
+            You can analyze the stock price trends for each of these stocks. Not only can you analyze the
+            trends, but you can also receive accurate short-term and long-term stock price predictions for
+            each of these stocks. What’s even better is you also get suggestions as to whether it is
+            profitable to buy a stock or sell a stock given the market trends observed and predicted.
+            We value our customers and we don’t want them to miss out on a good buy or sell opportunity
+            on their favorite stocks. Hence, we notify you as soon a good opportunity like that comes up.
+        </p>
+        <p>
+            We have incorporated Machine Learning algorithms into our application to predict future trends
+            in the stock market. So, using this application gives you the advantage of staying ahead in the
+            game compared to your fellow traders and in turn helps you in gaining profits.
+            By becoming a member on our website, you are guaranteed to feel like you have a partner or
+            friend who consistently guides you in making better investment decisions.</p>
+
+            <p>So, what else are you waiting for? Register on the website and grab the opportunity to better
+            yourself in stock market investments!</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

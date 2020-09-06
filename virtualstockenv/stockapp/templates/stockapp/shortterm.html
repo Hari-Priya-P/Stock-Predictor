@@ -1,0 +1,24 @@
+{% extends "stockapp/base.html" %}
+    {% block content %}
+        {% for pri in predictors %}
+            <article class="media content-section">
+                <div class="media-body">
+
+                    <h2>For the Stock{{ pri.name }}</h2>
+                    <h3> Price at next minute will be {{ pri.1 }}</h3>
+                    <h3> Price after 2 minutes will be {{ pri.2 }}</h3>
+                    <h3> Price after 3 minutes will be {{ pri.3 }}</h3>
+                    <h3> Price after 4 minutes will be {{ pri.4 }}</h3>
+                    <h3> Price after 5 minutes will be {{ pri.5 }}</h3>
+                    <h3> Price after 6 minutes will be {{ pri.6 }}</h3>
+                    <h3> Price after 7 minutes will be {{ pri.7 }}</h3>
+                    <h3> Price after 8 minutes will be {{ pri.8 }}</h3>
+                    <h3> Price after 9 minutes will be {{ pri.9 }}</h3>
+                    <h3> Price after 10 minutes will be {{ pri.10 }}</h3>
+                    <h2 class="article-content"> We suggest you to {{ pri.suggestion }} the stocks</h2>
+
+                    </div>
+
+            </article>
+        {% endfor %}
+    {% endblock content %}

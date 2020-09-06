@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Summary</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+     <style type="text/css">
+         body {
+        background: url(https://c4.wallpaperflare.com/wallpaper/902/866/448/blue-colorful-dark-simple-wallpaper-preview.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+      }
+
+        h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+
+      h4 {
+        text-align: center;
+      }
+
+      hr {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+      }
+
+      td {
+       border: 0.5px solid rgba(255, 255, 255, 0.2);
+      }
+
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'analysis' %}"><i class="fas fa-arrow-circle-left"></i> Back</a>
+        </div>
+
+    </nav>
+    <h1 class="text-center">Short Term Analysis</h1>
+    <hr>
+    <form action="" method="post">
+    {% csrf_token %}
+    <div align="center">
+    Please choose a stock:
+    <select name="stock">
+        <option value="AAPL">Apple (AAPL)</option>
+        <option value="AMZN">Amazon (AMZN)</option>
+        <option value="FB">Facebook (FB)</option>
+        <option value="GOOGL">Google (GOOGL)</option>
+        <option value="NFLX">Netflix (NFLX)</option>
+        <option value="TRIP">Trip Advisor (TRIP)</option>
+        <option value="TSLA">Tesla (TSLA)</option>
+        <option value="TWTR">Twitter (TWTR)</option>
+        <option value="VAC">Marriot Vacation (VAC)</option>
+        <option value="YELP">Yelp (YELP)</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="start-time">Start Time:</label>
+    <input type="time" id="start-time" name="start-time">
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="end-time">End Time:</label>
+    <input type="time" id="end-time" name="end-time">
+
+
+    <button type="submit">Go</button>
+    </form>
+    </div>
+    <hr>
+
+     <h4>
+        Company Name: <strong>{{ real_time.company_name }} </strong><br>
+        Current Price: <strong>{{ real_time.current_price }} USD</strong>
+    </h4>
+        <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>Stock Summary</h4>
+                 <table>
+                    <tr>
+                        <td>Previous Close Price</td>
+                        <td>{{ real_time.prev_close }}</td>
+                    </tr>
+                     <tr>
+                        <td>Percentage Change in Price from Prev Close</td>
+                        <td>{{ real_time.change }}%</td>
+                    </tr>
+                    <tr>
+                        <td>Minimum Price in Last 10 Days</td>
+                        <td>{{ real_time.min_10days }}</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Price in Last 10 Days</td>
+                        <td>{{ real_time.max_10days }}</td>
+                    </tr>
+                    <tr>
+                        <td>52-Week Low</td>
+                        <td>{{ real_time.min_1year }}</td>
+                    </tr>
+                    <tr>
+                        <td>52-Week High</td>
+                        <td>{{ real_time.max_1year }}</td>
+                    </tr>
+                    <tr>
+                        <td>52-Week Average</td>
+                        <td>{{ real_time.avg_1year }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">Companies with Average Stock Price lower than {{ real_time.company_name }}</td>
+                        <td>
+                            <ol>
+                                {% for sid, sname in real_time.companies %}
+                                <li>{{ sid }}: {{sname}}</li>
+                                {% endfor %}
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-lg-6">
+                <div id="container"></div>
+                <script src="https://code.highcharts.com/highcharts.src.js"></script>
+                <script>
+                  Highcharts.chart('container', {{ chart|safe }});
+                </script>
+                    
+            </div>
+        </div>
+
+    </div>
+     <hr>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+
+</form>
+</html>

@@ -1,0 +1,139 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <style type="text/css">
+           body {
+        background: url(https://www.saffrontax.com/wp-content/themes/wdl_starter/lib/img/background-contactus.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: lightgrey;
+      }
+      h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      h4 {
+        padding-bottom: 30px;
+        padding-top: 20px;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      .btn-block {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .col-lg-6 {
+        padding-bottom: 20px;
+      }
+
+      .sample{
+        color: #99ff99;
+      }
+
+      .sample1{
+        color: #ffc266;
+      }
+
+      </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse">
+          <a class="navbar-brand {{ myhome_page }}" href="{% url 'My-Home' %}">StockUp</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item {{ predict_page }}">
+                <a class="nav-link" href="{% url 'PREDICT' %}">Predict <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item {{ analysis_page }}">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+              </li>
+              <li class="nav-item {{ compare_page }}">
+                <a class="nav-link" href="{% url 'compare' %}">Compare</a>
+              </li>
+              <li class="nav-item {{ threshold_page }}">
+                <a class="nav-link" href="{% url 'threshold' %}">NotifyMe</a>
+              </li>
+              <li class="nav-item {{ learning_page }}">
+                <a class="nav-link" href="{% url 'learning_page' %}">Beginner's Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'page-about' %}">About</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Update Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+          </div>
+        </nav>
+        <h1 class="text-center sample">{{username}}, Welcome to Your Homepage!</h1>
+        <br><br>
+        <div class="container">
+
+        <div id="container1"></div>
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script>
+      Highcharts.chart('container1', {{ chart|safe }});
+    </script>
+    <hr>
+    	<br>
+	<h5 class="text-center">The following are the list of stock tickers with their most recent prices. Please click on the tickers to learn more about the company profiles. Clicking on the prices takes you to another page where you can analyze the stocks in more detail.<br></h5>
+  <h6 class="text-center sample1">We provide you with the most up to date real-time data by updating the data every minute <a href="https://finance.yahoo.com/" target="_blank">(Data Source)</a></h6>
+
+	<br>
+            <ul>
+            <div class="row">
+                
+                {% for stock, recent_price in price.items %}
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">
+                        <a href="{{stock}}">{{ stock }}</a>
+                    </button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">
+                        <a href="{% url 'analysis' %}">{{ recent_price }}</a>
+                    </button>
+                </div>
+
+                {% endfor %}
+
+                
+                </div>
+            </ul>
+
+            <h5 class="text-center">You can avail the several features available for these stocks on our website. To receive stock price predictions and buy/sell suggestions along with the predictions, click on the Predict tab. You can perform short term and long term analysis of any stock of your choice by clicking on the Analysis tab. The compare tab allows you to compare two stocks and the threshold tab allows you to set thresholds for your favourite stocks and receive email notifications when the threshold is reached.<br></h5>
+            <br>
+
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+    </html>
+

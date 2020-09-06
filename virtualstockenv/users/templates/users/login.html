@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<style type="text/css">
+		h1 {
+			/*text-align: center;*/
+			background: rgba(0, 0, 0, 0.3);
+			color: rgb(255, 255, 255);
+			font-family: Lato;
+			font-weight: 700;
+			padding-bottom: 20px;
+		}
+
+		body {
+            background: url(https://image.freepik.com/free-vector/business-candle-stick-graph-chart-stock-market-investment-trading-blue-background_62391-77.jpg);
+            position: cover;
+	        background-size: cover;
+	        background-repeat: no-repeat;
+          }
+          .container .row .col-md-6 .change-form {
+            padding: 10% 10% 10% 10%;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid black;
+            margin-top: 40px;
+            max-width: 500px;
+            height: 400px;
+          }
+
+		#log-row #log-column .log-form {
+			padding: 10% 10% 10% 10%;
+			margin-top: 80px;
+			max-width: 700px;
+			height: 450px;
+			border: 1px solid black;
+			background-color: rgba(0, 0, 0, 0.6);
+			font-family: Lato;
+			color: lightgrey;
+		}
+
+
+		.navbar-inverse {
+			background: rgba(0, 0, 0, 0.3);
+			color: blue;
+		}
+	</style>
+</head>
+
+<body>
+	{% load crispy_forms_tags %}
+
+     <nav class="navbar navbar-dark navbar-inverse">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'Land' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+
+
+        <div class="container">
+
+			<div id="log-row" class="row d-flex justify-content-center">
+				<div id="log-column" class="col-md-6">
+					<div class="log-form col-md-12">
+						<form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-4">Log In</legend>
+                                {{ form|crispy }}
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Log In</button>
+                            </div>
+                        </form>
+                        <div class="border-top pt-3">
+                            <small class="text-muted">
+                                Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign up here</a>
+                            </small>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <style type="text/css">
+         body {
+        background: url(https://wallup.net/wp-content/uploads/2018/09/25/632758-simple_background-blue_background-hexagon-748x468.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        color: white;
+      }
+
+        h1 {
+        padding-bottom: 30px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-inverse {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .container {
+        padding-top: 50px;
+      }
+
+      .sample{
+        color: #66ffff;
+        text-decoration: underline;
+      }
+
+       hr {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'My-Home' %}"><i class="fas fa-arrow-circle-left"></i> Back to Home</a>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+    <h1 class="text-center">Netflix</h1>
+
+    <div class="container">
+         <h6>
+            <strong>Contact: <br></strong>
+        Netflix Inc. <br>
+        100 Winchester Circle <br>
+        Los Gatos, CA 95032 <br><br>
+        <a class="sample" href="http://www.netflix.com" target="_blank">Learn More <br></a>
+        </h6>
+        <hr>
+        <h6>About Netflix</h6>
+        <p class="text-justify">Netflix, Inc. provides subscription streaming entertainment service. It offers TV series, documentaries,
+        and feature films across various genres and languages. The company provides members the ability to receive streaming content through
+        a host of Internet-connected screens, including TVs, digital video players, television set-top boxes, and mobile devices. It also
+        provides DVDs-by-mail membership services. The company has approximately 167 million paid members in 190 countries. Netflix, Inc. was
+        founded in 1997 and is headquartered in Los Gatos, California.</p>
+        <hr>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
