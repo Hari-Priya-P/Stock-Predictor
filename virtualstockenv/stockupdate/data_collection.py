@@ -11,8 +11,8 @@ stocks = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'NFLX', 'TSLA', 'TWTR', 'YELP', 'VAC', 
 # connect to mysql database
 mydb = mysql.connector.connect(
     host="localhost",
-    user="root",
-    passwd="Password1$",
+    user="<user>",
+    passwd="<password>",
     database="appdata",
     auth_plugin='mysql_native_password',
 )
