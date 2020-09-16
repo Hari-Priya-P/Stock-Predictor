@@ -6,8 +6,8 @@ from stockapp.indicator_models import calc_ema, calc_macd, calc_rsi, get_suggest
 def get_short_term(stock, no_of_minutes):
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        passwd="Password1$",
+        user="<user>",
+        passwd="<password>",
         database='appdata',
         auth_plugin='mysql_native_password'
     )
