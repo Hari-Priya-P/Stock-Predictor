@@ -25,8 +25,8 @@ def check_thresholds():
     stocks = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'NFLX', 'TSLA', 'TWTR', 'YELP', 'VAC', 'TRIP']
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        passwd="Password1$",
+        user="<user>",
+        passwd="<password>$",
         database='appdata',
         auth_plugin='mysql_native_password'
     )
