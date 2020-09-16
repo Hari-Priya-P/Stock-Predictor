@@ -11,8 +11,8 @@ from stockapp.indicator_models import calc_ema, calc_macd, calc_rsi, get_suggest
 def get_long_term(stock, no_of_days):
     mydb = mysql.connector.connect(
             host="localhost",
-            user="root",
-            passwd="Password1$",
+            user="<root>",
+            passwd="<password>",
             database="appdata",
             auth_plugin='mysql_native_password'
         )
